@@ -1,0 +1,71 @@
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  margin-right: 5px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.save {
+  background: #a259ff;
+}
+.update {
+  background: #3498db;
+}
+.cancel {
+  background: gray;
+}
+.edit {
+  background: #17a2b8;
+}
+.delete {
+  background: #e74c3c;
+}
+.back {
+  background: #2c3e50;
+  margin-top: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.table th {
+  background-color: #f8d7ff;
+}
