@@ -28,7 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION['fullname'] = $fullname;
                         $_SESSION['role'] = $role_db;
 
-                        header("Location: main.php");
+                        if ($role_input === 'student') {
+                            header("Location: main.php");
+                        } else if ($role_input === 'teacher') {
+                            header("Location: main1.php");
+                        }
                         exit();
                     } else {
                         $error = "Role does not match the registered account.";
@@ -59,41 +63,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="container mt-5" style="max-width: 500px;">
-        <div class="card p-4 shadow">
-            <h3 class="text-center mb-3 text-warning">Login</h3>
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="card p-4 shadow">
+        <h3 class="text-center mb-3 text-warning">Login</h3>
 
-            <?php if (!empty($error)): ?>
-                <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
-            <?php endif; ?>
+        <?php if (!empty($error)): ?>
+            <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
 
-            <form method="POST" action="login.php">
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <input type="email" name="email" class="form-control" required>
-                </div>
+        <form method="POST" action="login.php" id="loginForm">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
-                    <input type="password" name="password" class="form-control" required>
-                </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="role" class="form-label">Role:</label>
-                    <select name="role" class="form-select" required>
-                        <option value="">-- Choose Role --</option>
-                        <option value="student">Student</option>
-                        <option value="teacher">Teacher</option>
-                    </select>
-                </div>
+            <div class="mb-3">
+                <label for="role" class="form-label">Role:</label>
+                <select name="role" id="roleSelect" class="form-select" required>
+                    <option value="">-- Choose Role --</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+            </div>
 
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-warning">Login</button>
-                </div>
-            </form>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-warning">Login</button>
+            </div>
+        </form>
 
-            <p class="mt-3 text-center">No account yet? <a href="register.php">Sign Up</a></p>
-        </div>
+        <p class="mt-3 text-center">No account yet? <a href="register.php">Sign Up</a></p>
     </div>
+</div>
+
 </body>
 </html>
